@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-5"></h2>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Наименование должности</th>
+                    <th scope="col">Заработная плата</th>
+                    <th scope="col">Отдел</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for panda in pandas %}
+                <tr>
+                    <th scope="col">{{ panda.id }}</th>
+                    <td>{{ panda.name }}</td>
+                    <td>{{ panda.salary }}</td>
+                    <td>{{ panda.department }}</td>
+                    <td><a href="#"></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
