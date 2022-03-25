@@ -41,48 +41,53 @@ class EmloyeeCreate(CreateView):
 class PositionDelete(DeleteView):
     model = Position
     template_name = 'delete_confirm.html'
-    success_url = reverse_lazy('department_view.html')
+    success_url = reverse_lazy('department_view')
 
 class EmployeeDelete(DeleteView):
     model = Employee
     template_name = 'delete_confirm.html'
-    success_url = reverse_lazy('employee_view.html')
+
+    success_url = reverse_lazy('employee_view')
 
 
 class PopsitionUpdate(UpdateView):
     model = Position
     template_name = "add.html"
+    fields = '__all__'
+    success_url = reverse_lazy('employee')
 
 class EmployeeUpdate(UpdateView):
     model = Employee
     template_name = "add.html"
+    fields = '__all__'
+    success_url = reverse_lazy('employee')
 
 
-def position_update(request, id):
-    position = Position.objects.get(id=id)
-    if request.method == "GET":
-        form = PositionForm()
-        return render(request, 'add.html', {'form':form})
-    if request.method == "POST":
-        form= PositionForm(request.POST, instance=position)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse("department"))
-        else:
-            return render(request, 'add.html', {'form':form})
+# def position_update(request, id):
+#     position = Position.objects.get(id=id)
+#     if request.method == "GET":
+#         form = PositionForm()
+#         return render(request, 'add.html', {'form':form})
+#     if request.method == "POST":
+#         form= PositionForm(request.POST, instance=position)
+#         if form.is_valid():
+#             form.save()
+#             return redirect(reverse("departmentgit"))
+#         else:
+#             return render(request, 'add.html', {'form':form})
 
-def employee_update(request, id):
-    employee = Employee.objects.get(id=id)
-    if request.method == "GET":
-        form = EmployeeForm()
-        return render(request, "add.html", {"form":form})
-    if request.method == "POST":
-        form = EmployeeForm(request.POST, instance=employee)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse("employee"))
-        else:
-            return render(request, "add.html", {"form":form})
+# def employee_update(request, id):
+#     employee = Employee.objects.get(id=id)
+#     if request.method == "GET":
+#         form = EmployeeForm()
+#         return render(request, "add.html", {"form":form})
+#     if request.method == "POST":
+#         form = EmployeeForm(request.POST, instance=employee)
+#         if form.is_valid():
+#             form.save()
+#             return redirect(reverse("employee"))
+#         else:
+#             return render(request, "add.html", {"form":form})
 
 
 # def department_view(request):

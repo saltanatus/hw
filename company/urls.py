@@ -26,10 +26,10 @@ urlpatterns = [
     path('position/create/', views.PositionCreate.as_view(), name="position_create"),
     path('position/detail/<int:pk>/', views.PositionDetail.as_view(), name="single_positioin"),
     path('position/delete/<int:pk>/', views.PositionDelete.as_view(), name="position_delete"),
-    path('position/update/<int:id>/', views.position_update, name="position_update"),
+    path('position/update/<int:pk>/', views.PopsitionUpdate.as_view(), name="position_update"),
     path('employee/', views.EmployeeView.as_view(), name="employee"),
     path('employee/create/', views.EmloyeeCreate.as_view(), name="employee_create"),
     path('employee/detail/<int:pk>/', views.EmployeeDetail.as_view(), name='single_employee'),
     path('employee/delete/<int:pk>/', views.EmployeeDelete.as_view(), name='employee_delete'),
-    path('employee/update/<int:id>/', views.employee_update, name="employee_update"),
+    path('employee/update/<int:pk>/', views.EmployeeUpdate.as_view(), name="employee_update"),
 ]
